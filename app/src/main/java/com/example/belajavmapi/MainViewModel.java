@@ -18,9 +18,14 @@ import java.util.ArrayList;
 import cz.msebera.android.httpclient.Header;
 
 public class MainViewModel extends ViewModel {
-    private MutableLiveData<ArrayList<WeatherItems>> listWeathers = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<WeatherItems>> listWeathers;
 
     LiveData<ArrayList<WeatherItems>> getWeathers() {
+        
+         if (listWeathers == null) {
+            allproduct= new MutableLiveData<>();
+           setWeather("all");
+        }
         return listWeathers;
     }
 
